@@ -51,16 +51,15 @@ const Layout = ({ children }) => {
   return (
     <Box
       sx={{
-        height: "100vh",
-        width: "100vw",
+        minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
       }}
     >
       {/* Header */}
-      <AppBar position="static">
-        <Toolbar>
-          {!isRoot && (
+      {!isRoot && (
+        <AppBar position="static">
+          <Toolbar>
             <IconButton
               color="inherit"
               edge="start"
@@ -69,14 +68,12 @@ const Layout = ({ children }) => {
             >
               <MenuIcon />
             </IconButton>
-          )}
-          <Typography variant="h6">
-            {isRoot ? "Bienvenido" : "Mi Dashboard"}
-          </Typography>
-        </Toolbar>
-      </AppBar>
+            <Typography variant="h6">Mi Dashboard</Typography>
+          </Toolbar>
+        </AppBar>
+      )}
 
-      {/* Drawer (solo si no estamos en /) */}
+      {/* Drawer */}
       {!isRoot && (
         <Drawer anchor="left" open={openDrawer} onClose={toggleDrawer(false)}>
           <Box
@@ -107,21 +104,38 @@ const Layout = ({ children }) => {
       )}
 
       {/* Main content */}
-      <Container sx={{ flexGrow: 1, p: 4 }}>{children}</Container>
+      <Box sx={{ flexGrow: 1 }}>
+        {isRoot ? (
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              minHeight: "100%",
+            }}
+          >
+            {children}
+          </Box>
+        ) : (
+          <Container sx={{ flexGrow: 1, p: 4 }}>{children}</Container>
+        )}
+      </Box>
 
       {/* Footer */}
-      <Box
-        component="footer"
-        sx={{
-          py: 2,
-          px: 2,
-          backgroundColor: "primary.main",
-          color: "white",
-          textAlign: "center",
-        }}
-      >
-        © 2025 Mi App
-      </Box>
+      {!isRoot && (
+        <Box
+          component="footer"
+          sx={{
+            py: 2,
+            px: 2,
+            backgroundColor: "primary.main",
+            color: "white",
+            textAlign: "center",
+          }}
+        >
+          © 2025 Mi App
+        </Box>
+      )}
     </Box>
   );
 };
