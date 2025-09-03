@@ -292,7 +292,7 @@ const Recibos = () => {
               />
                <FormControl fullWidth margin="normal" required>
                 <InputLabel>Usuario</InputLabel>
-                <Select name="cliente_id" value={nuevoRecibo.cliente_id} onChange={handleChange} label="Usuario">
+                <Select name="cliente_id" value={nuevoRecibo.usuario} onChange={handleChange} label="Usuario">
                   {usuarios.map((u) => (
                     <MenuItem key={u.id} value={u.id}>
                       {u.email}
