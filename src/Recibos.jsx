@@ -23,7 +23,7 @@ const Recibos = () => {
     monto: "",
     fecha: "",
     descripcion: "",
-    cliente_id: "",
+    usuario: "",     // <-- antes era cliente_id
     concepto: "",
   });
   const [usuarios, setUsers] = useState([]);
@@ -292,13 +292,18 @@ const Recibos = () => {
               />
                <FormControl fullWidth margin="normal" required>
                 <InputLabel>Usuario</InputLabel>
-                <Select name="cliente_id" value={nuevoRecibo.cliente_id} onChange={handleChange} label="Usuario">
-                  {usuarios.map((u) => (
-                    <MenuItem key={u.id} value={u.id}>
-                      {u.email}
-                    </MenuItem>
-                  ))}
-                </Select>
+                <Select
+                name="usuario"             // <-- cambiar de cliente_id a usuario
+                value={nuevoRecibo.usuario}
+                onChange={handleChange}
+                label="Usuario"
+              >
+                {usuarios.map((u) => (
+                  <MenuItem key={u.id} value={u.id}>
+                    {u.email}
+                  </MenuItem>
+                ))}
+              </Select>
               </FormControl>
               <Button type="submit" variant="contained" color="primary" sx={{ mt: 2 }}>
                 Crear
