@@ -10,6 +10,7 @@ import {
   Paper,
 } from "@mui/material";
 import Swal from "sweetalert2";
+import Layout from "./Layout";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -52,6 +53,7 @@ const Login = () => {
   };
 
   return (
+    <Layout>
     <Box
     sx={{
         height: "100vh",
@@ -100,6 +102,7 @@ const Login = () => {
         </Paper>
       </Container>
     </Box>
+    </Layout>
   );
 };
 
