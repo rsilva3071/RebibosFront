@@ -1,7 +1,7 @@
 export const getUserInfo = async () => {
   const token = localStorage.getItem("access");
 
-  const response = await fetch("http://127.0.0.1:8000/api/user/", {
+  const response = await fetch("http://52.14.20.207:8000/api/user/", {
     method: "GET",
     headers: {
       "Authorization": `Bearer ${token}`,
@@ -21,7 +21,7 @@ export const getUserInfo = async () => {
 export const GetUsuarios = async () => {
   const token = localStorage.getItem("access");
 
-  const response = await fetch("http://127.0.0.1:8000/api/usuarios/", {
+  const response = await fetch("http://52.14.20.207:8000/api/usuarios/", {
     method: "GET",
     headers: {
       "Authorization": `Bearer ${token}`,
@@ -39,7 +39,7 @@ export const GetUsuarios = async () => {
 
 export const registerUser = async (username="robert", password="1234", email="mail1@mail.com") => {
   const token = localStorage.getItem("access");
-  const response = await fetch("http://127.0.0.1:8000/api/CreateUser/", {
+  const response = await fetch("http://52.14.20.207:8000/api/CreateUser/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -106,7 +106,7 @@ export const GetUser = async () => {
   };
   
   export const loginUser = async (username, password) => {
-    const response = await fetch("http://127.0.0.1:8000/api/token/", {
+    const response = await fetch("http://52.14.20.207:8000/api/token/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -140,7 +140,7 @@ export const CreateRecibo = async (nuevoRecibo) => {
     const token = localStorage.getItem("access");
     
     
-    const response = await fetch("http://127.0.0.1:8000/api/recibos/crear/", {
+    const response = await fetch("http://52.14.20.207:8000/api/recibos/crear/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -167,7 +167,7 @@ export const CreatePago = async (reciboId, monto) => {
   try {
     const token = localStorage.getItem("access");
 
-    const response = await fetch("http://127.0.0.1:8000/api/pagos/crear/", {
+    const response = await fetch("http://52.14.20.207:8000/api/pagos/crear/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -198,7 +198,7 @@ export const refreshToken = async () => {
   if (!refresh) return null;
 
   try {
-    const res = await fetch("http://127.0.0.1:8000/api/token/refresh/", {
+    const res = await fetch("http://52.14.20.207:8000/api/token/refresh/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ refresh }),
