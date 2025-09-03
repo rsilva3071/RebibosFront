@@ -2,8 +2,8 @@ services:
   react-app:
     build: .
     ports:
-      - "5173:5173"
+      - "3000:3000"  # cambia aquí de 5173 a 3000
     volumes:
       - .:/app
       - /app/node_modules
-    command: npm run dev -- --host
+    command: npm run dev -- --host 0.0.0.0 --port 3000
