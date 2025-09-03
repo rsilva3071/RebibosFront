@@ -84,7 +84,7 @@ export const GetUser = async () => {
   export const GetRecibos = async () => {
     const token = localStorage.getItem("access");
     try {
-      const response = await fetch(`http://localhost:8000/api/recibos/`, {
+      const response = await fetch(`http://52.14.20.207:8000/api/recibos/`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
