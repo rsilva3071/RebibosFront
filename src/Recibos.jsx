@@ -23,7 +23,7 @@ const Recibos = () => {
     monto: "",
     fecha: "",
     descripcion: "",
-    cliente_id: "",
+    usuario: "",
     concepto: "",
   });
   const [usuarios, setUsers] = useState([]);
