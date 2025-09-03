@@ -50,6 +50,20 @@ const Recibos = () => {
 
   // Obtener recibos
   const handleGetRecibos = async () => {
+    const isTokenValid = () => {
+        const token = localStorage.getItem("access");
+        const expiration = localStorage.getItem("access_expiration");
+      
+        if (!token || !expiration) return false;
+      
+        return new Date().getTime() < Number(expiration);
+      };
+      if (!isTokenValid()) {
+        localStorage.removeItem("access");
+        localStorage.removeItem("refresh");
+        localStorage.removeItem("access_expiration");
+        window.location.href = "/";
+      }
     try {
       const response = await GetRecibos();
       if (Array.isArray(response)) {

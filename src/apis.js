@@ -14,7 +14,7 @@ export const getUserInfo = async () => {
   }
 
   const data = await response.json();
-  console.log("User info:", data);
+  
   return data;
 };
 
@@ -53,7 +53,7 @@ export const registerUser = async (username="robert", password="1234", email="ma
   }
 
   const data = await response.json();
-  console.log("Usuario creado:", data);
+  
   return data;
 };
 
@@ -67,7 +67,7 @@ export const GetUser = async () => {
         },
       });
   
-      console.log(response);
+      
       if (!response.ok) {
         throw new Error("Error en la petición");
       }
@@ -92,7 +92,7 @@ export const GetUser = async () => {
         },
       });
   
-      console.log(response);
+      
       if (!response.ok) {
         throw new Error("Error en la petición");
       }
@@ -119,7 +119,7 @@ export const GetUser = async () => {
     }
   
     const data = await response.json();
-    console.log("Tokens:", data);
+    
   
     // Guardamos el token en localStorage
     localStorage.setItem("access", data.access);
@@ -134,11 +134,11 @@ export const GetUser = async () => {
   
   
 export const CreateRecibo = async (nuevoRecibo) => {
-  console.log(nuevoRecibo);
+  
   
   try {
     const token = localStorage.getItem("access");
-    console.log(token);
+    
     
     const response = await fetch("http://127.0.0.1:8000/api/recibos/crear/", {
       method: "POST",
@@ -154,7 +154,7 @@ export const CreateRecibo = async (nuevoRecibo) => {
     }
 
     const data = await response.json();
-    console.log("✅ Recibo creado:", data);
+    
     return data;
   } catch (error) {
     console.error("❌ Error en CreateRecibo:", error);
@@ -184,7 +184,7 @@ export const CreatePago = async (reciboId, monto) => {
     }
 
     const data = await response.json();
-    console.log("✅ Pago creado:", data);
+    
     return data;
   } catch (error) {
     console.error("❌ Error en CreatePago:", error);

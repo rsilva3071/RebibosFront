@@ -20,9 +20,9 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await loginUser(username, password);
-      console.log(response);
+     
       const user = await getUserInfo();
-      console.log(user);
+     
       
       if (response.access) {
         Swal.fire({

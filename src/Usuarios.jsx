@@ -49,7 +49,7 @@ const Usuarios = () => {
       const response = await GetUsuarios();
       if (Array.isArray(response)) {
         setUsuarios(response);
-        console.log(response);
+        
       } else {
         setUsuarios([]);
       }
